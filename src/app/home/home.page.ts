@@ -3,6 +3,7 @@ import { Asesoria } from '../models/Asesoria';
 import { Course } from '../models/Course';
 import { ModalController } from '@ionic/angular';
 import { AsesoriaModalPage } from '../modals/asesoria-modal/asesoria-modal.page';
+import { CoursesService } from '../services/courses.service';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,8 @@ import { AsesoriaModalPage } from '../modals/asesoria-modal/asesoria-modal.page'
 })
 export class HomePage implements OnInit {
 
-  constructor(private ModalController : ModalController) {}
+  constructor(private ModalController : ModalController,
+              private courseService : CoursesService) {}
 
   
   //"Test entries"
@@ -19,27 +21,15 @@ export class HomePage implements OnInit {
   
 
   ngOnInit() { 
-    this.localAsesorias = this.getAsesorias();
-  }
-  
-  //"Test function"
-  private getAsesorias() {
-    var temp = []
-    var tempcurso : Course = {
-      Name : "Matematicas",
-      Description : "Todo sobre matematicas"
-    }
-    var assesoria : Asesoria = {
-      Title : "Asesoria de prueba",
-      Description : "Esta asesoria es una prueba",
-      Date : "20/8/2019",
-      Teacher : "Juanito",
-      Course : tempcurso,
-    }
+    this.getCourses()
 
-    temp.push(assesoria);
-    console.log(temp)
-    return temp
+    
+  }
+
+  getCourses() {
+    this.courseService.getCourses().subscribe((courses) => {
+      this.localAsesorias = courses
+    });
   }
 
   async openInfoModal(item) {
@@ -51,9 +41,4 @@ export class HomePage implements OnInit {
     });
     await modal.present()
   }
-
-
-
-
-
 }

@@ -12,7 +12,15 @@
   <form [formGroup]="signupForm">
     <ion-item>
       <ion-label position="floating">Nombre</ion-label>
-      <ion-input formControlName ="name" placeholder="Juan Perez"></ion-input>
+      <ion-input formControlName ="name" placeholder="Juan"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Apellidos</ion-label>
+      <ion-input formControlName ="surname" placeholder="Perez"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Sobre mi</ion-label>
+      <ion-input formControlName ="aboutme" placeholder="hola"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">Correo</ion-label>

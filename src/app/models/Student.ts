@@ -1,6 +1,7 @@
 import { Course } from './Course';
 
-export interface Teacher {
+export interface Student {
+    id : string,
     Name : string,
     Surname : string,
     AboutMe : string,

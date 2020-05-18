@@ -1,3 +1,25 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-split-pane contentId="main">
+    <!--  our side menu  -->
+    <ion-menu contentId="main">
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Menu</ion-title>
+        </ion-toolbar>
+
+        <ion-button  color="crema" expand="block" fill="outline"> Home </ion-button>
+        <ion-button  color="crema" expand="block" fill="outline"> Control Panel</ion-button>
+        <ion-button  color="crema" expand="block" fill="outline"> Account</ion-button>
+        <ion-button color="crema" expand="block" fill="outline"> Log Out</ion-button>
+        
+      </ion-header>
+
+
+
+    </ion-menu>
+  
+    <!-- the main content -->
+    <ion-router-outlet id="main"></ion-router-outlet>
+  </ion-split-pane>
+  
 </ion-app>
